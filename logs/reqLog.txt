@@ -1,0 +1,5 @@
+20231217	22:12:15	530ee1c9-945a-4e8b-9187-58d6a9fe0a87	GET	undefined	/
+20231217	22:12:54	3b6d673b-888a-4df6-af69-6ac7639bbe15	GET	undefined	/
+20231217	22:14:15	146c8d3e-8dcb-4561-b5e7-93aeeb8c5a71	GET	undefined	/
+20231217	22:14:15	1c4e49d3-3b30-423f-ae91-875d29e6b536	GET	undefined	/css/style.css
+20231217	22:14:15	53cc7124-de35-44ea-a8a1-b9176a2b538e	GET	undefined	/favicon.ico
