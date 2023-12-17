@@ -7,3 +7,8 @@
 20231217	22:20:01	45959386-ed8c-4b3e-8414-d0acf2ae0d63	GET	undefined	/css/style.css
 20231217	22:20:27	c043a756-c242-4eba-8102-9beba86c2cb2	GET	https://www.google.com	/
 20231217	22:20:39	e8509731-8035-4b58-b97e-78a1c66c302d	GET	https://www.google.com	/
+20231217	22:27:41	aa49bcbb-625a-4fff-8452-2c79bce90734	GET	undefined	/employees
+20231217	22:28:30	5f1771af-a707-4a2f-b34b-5de7b74465a9	POST	undefined	/employees
+20231217	22:28:37	8f3d64f7-0afd-46ce-be20-0f62b830bfd0	GET	undefined	/employees
+20231217	22:28:45	26d9a70a-e2e5-48eb-97e4-d37517d546cf	POST	undefined	/employees
+20231217	22:28:50	70e09294-56f1-40f8-8ac8-2c66dd0dd95f	GET	undefined	/employees
