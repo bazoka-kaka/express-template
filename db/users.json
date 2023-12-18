@@ -1,1 +1,11 @@
-[{"username":"benzion","password":"$2b$10$yT5Jbg0lGCGAHs87nvxv3u2eNjQ238CEbzgD8EWuGjg.WuhjxLbni","refreshToken":""}]
+[
+  {
+    "username": "benzion",
+    "roles": {
+      "User": 2001,
+      "Editor": 1984
+    },
+    "password": "$2b$10$yT5Jbg0lGCGAHs87nvxv3u2eNjQ238CEbzgD8EWuGjg.WuhjxLbni",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJlbnppb24iLCJpYXQiOjE3MDI5MDkwODksImV4cCI6MTcwMjk5NTQ4OX0.pm0oAI_1JssYSTSsYH6VYFl983zfOPtwj20nYw-Z1fE"
+  }
+]
