@@ -1,8 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const corsOptions = require("./config/corsOptions");
 const { reqLog, errLog } = require("./middleware/logEvents");
+const verifyJWT = require("./middleware/verifyJWT");
 const app = express();
 const PORT = process.env.PORT || 3500;
 
@@ -13,12 +16,18 @@ app.use(reqLog);
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // routes
 app.use("/", require("./routes/root"));
 app.use("/register", require("./routes/register"));
 app.use("/auth", require("./routes/auth"));
+app.use("/refresh", require("./routes/refresh"));
+app.use("/logout", require("./routes/logout"));
+
+// auth verification
+app.use(verifyJWT);
 
 // protected routes
 app.use("/employees", require("./routes/api/employees"));
