@@ -10,6 +10,13 @@ router
   .post(
     verifyRoles(ROLES_LIST.Editor, ROLES_LIST.Admin),
     employeesController.createNewEmployee
-  );
+  )
+  .put(
+    verifyRoles(ROLES_LIST.Editor, ROLES_LIST.Admin),
+    employeesController.updateEmployee
+  )
+  .delete(verifyRoles(ROLES_LIST.Admin), employeesController.deleteEmployee);
+
+router.get("/:id", employeesController.getEmployee);
 
 module.exports = router;
