@@ -1,21 +1,11 @@
-const usersDB = {
-  users: require("../db/users.json"),
-  setUsers: function (data) {
-    this.users = data;
-  },
-};
-
-const fsPromises = require("fs").promises;
-const path = require("path");
+const User = require("../db/User");
 
 const handleLogout = async (req, res) => {
   const cookies = req.cookies;
   if (!cookies?.jwt) return res.sendStatus(204);
   const refreshToken = cookies.jwt;
 
-  const foundUser = usersDB.users.find(
-    (person) => person.refreshToken === refreshToken
-  );
+  const foundUser = await User.findOne({ refreshToken }).exec();
   if (!foundUser) {
     // clear cookie
     res.clearCookie("jwt", {
@@ -27,15 +17,11 @@ const handleLogout = async (req, res) => {
   }
 
   // clear refreshToken from db
-  const currUser = { ...foundUser, refreshToken: "" };
-  const otherUsers = usersDB.users.filter(
-    (person) => person.username !== foundUser.username
-  );
-  usersDB.setUsers([...otherUsers, currUser]);
-  await fsPromises.writeFile(
-    path.join(__dirname, "..", "db", "users.json"),
-    JSON.stringify(usersDB.users)
-  );
+  foundUser.refreshToken = "";
+
+  const result = await foundUser.save();
+
+  console.log(result);
 
   // clear cookie
   res.clearCookie("jwt", {

@@ -1,14 +1,7 @@
-const usersDB = {
-  users: require("../db/users.json"),
-  setUsers: function (data) {
-    this.users = data;
-  },
-};
+const User = require("../db/User");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const path = require("path");
-const fsPromises = require("fs").promises;
 
 const handleLogin = async (req, res) => {
   const { user, pwd } = req.body;
@@ -17,7 +10,7 @@ const handleLogin = async (req, res) => {
       .status(400)
       .json({ message: "Username and password are required" });
 
-  const foundUser = usersDB.users.find((person) => person.username == user);
+  const foundUser = await User.findOne({ username: user }).exec();
   if (!foundUser) return res.sendStatus(401);
 
   const match = await bcrypt.compare(pwd, foundUser.password);
@@ -37,15 +30,11 @@ const handleLogin = async (req, res) => {
     );
 
     // save jwt to db
-    const currUser = { ...foundUser, refreshToken };
-    const otherUsers = usersDB.users.filter(
-      (person) => person.username !== foundUser.username
-    );
-    usersDB.setUsers([...otherUsers, currUser]);
-    await fsPromises.writeFile(
-      path.join(__dirname, "..", "db", "users.json"),
-      JSON.stringify(usersDB.users)
-    );
+    foundUser.refreshToken = refreshToken;
+
+    const result = await foundUser.save();
+
+    console.log(result);
 
     // set jwt to cookie
     res.cookie("jwt", refreshToken, {
