@@ -43,7 +43,7 @@ const handleLogin = async (req, res) => {
       sameSite: "None",
       secure: false,
     });
-    res.json({ accessToken });
+    res.json({ accessToken, roles });
   } else {
     res.sendStatus(401);
   }
