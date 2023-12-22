@@ -8,6 +8,7 @@ const connectDB = require("./config/dbConn");
 const corsOptions = require("./config/corsOptions");
 const { reqLog, errLog } = require("./middleware/logEvents");
 const verifyJWT = require("./middleware/verifyJWT");
+const credentials = require("./middleware/credentials");
 const app = express();
 const PORT = process.env.PORT || 3500;
 
@@ -18,6 +19,7 @@ connectDB();
 app.use(reqLog);
 
 // middlewares
+app.use(credentials);
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

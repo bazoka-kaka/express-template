@@ -74,3 +74,8 @@
 20231219	21:05:42	c008eb50-b467-404a-b9cd-170364c3e9b7	GET	undefined	/refresh
 20231219	21:05:47	499e657c-5d32-40b2-a1f5-51bbf471291f	DELETE	undefined	/employees
 20231219	21:05:50	b318f583-014c-464e-af05-65183ec6f758	GET	undefined	/employees
+20231222	23:07:03	ff382aea-33e0-4cf1-972f-c8c501dc1d3c	OPTIONS	http://localhost:3000	/register
+20231222	23:11:07	565cc5cc-66e9-4e6c-931f-2a5ae3116c15	OPTIONS	http://localhost:3000	/register
+20231222	23:11:08	6d94e517-adc6-49c7-ad24-3750e2f25caa	POST	http://localhost:3000	/register
+20231222	23:11:15	3a2817f0-b7f4-435b-becf-921e4e1212d2	OPTIONS	http://localhost:3000	/register
+20231222	23:11:15	72ff914d-c882-48cb-bac4-d9f5a958c4a5	POST	http://localhost:3000	/register
